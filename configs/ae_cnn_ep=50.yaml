@@ -1,0 +1,39 @@
+seed: 0
+
+data:
+  folder: "."                    # directory containing day_*.tar
+  grayscale: true                # true = 1 channel, false = RGB
+  use_all_times: true            # if true, ignore time window entirely
+  start_time: "00:00:00"         # ignored when use_all_times=true
+  end_time: "23:59:59"
+  frame_step: 1                  # keep every Nth frame per day
+  max_samples: null              # null = use all frames; int = random subsample BEFORE cache is built
+  train_fraction: 0.95
+  normalize: true                # divide by 255
+
+  cache_root: "frame_cache"      # directory where uint8 .npy memmap caches are stored
+  use_cache: true                # reuse cache if present
+
+model:
+  in_channels: 1                  # must match grayscale true/false
+  img_width: 128
+  img_height: 72
+  conv_channels: [32, 64, 128]
+  kernel_size: 3
+  latent_dim: 2
+  dropout: 0.1
+
+training:
+  num_epochs: 50
+  batch_size: 1024
+  optimizer: adam
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-5
+
+device:
+  type: "auto"
+
+logging:
+  output_dir: "autoencoder_runs"
+  run_name: "cnn_ae_v1"
+  num_recon_examples: 8
