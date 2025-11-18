@@ -20,7 +20,7 @@ model:
   img_height: 72
   conv_channels: [32, 64, 128]
   kernel_size: 3
-  latent_dim: 16                  # >2, UMAP will reduce to 2D
+  latent_dim: 16
   dropout: 0.1
 
 training:
