@@ -41,6 +41,6 @@ logging:
 
 pca:
   n_components: 2
-  whiten: false
+  whiten: true
   random_state: 0
   max_points: null             # null = fit on all points, int = fit on subset of this size
