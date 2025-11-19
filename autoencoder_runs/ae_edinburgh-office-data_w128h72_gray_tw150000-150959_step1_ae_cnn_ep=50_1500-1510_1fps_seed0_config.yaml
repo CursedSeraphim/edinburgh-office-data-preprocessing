@@ -1,0 +1,36 @@
+data:
+  cache_root: frame_cache
+  end_time: '15:09:59'
+  folder: .
+  frame_step: 1
+  grayscale: true
+  max_samples: null
+  normalize: true
+  start_time: '15:00:00'
+  train_fraction: 0.95
+  use_all_times: false
+  use_cache: true
+device:
+  type: auto
+logging:
+  num_recon_examples: 8
+  output_dir: autoencoder_runs
+  run_name: cnn_ae_v1
+model:
+  conv_channels:
+  - 32
+  - 64
+  - 128
+  dropout: 0.1
+  img_height: 72
+  img_width: 128
+  in_channels: 1
+  kernel_size: 3
+  latent_dim: 2
+seed: 0
+training:
+  batch_size: 1024
+  learning_rate: 0.001
+  num_epochs: 50
+  optimizer: adam
+  weight_decay: 1.0e-05

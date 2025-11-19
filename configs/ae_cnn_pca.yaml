@@ -24,7 +24,7 @@ model:
   dropout: 0.1
 
 training:
-  num_epochs: 50
+  num_epochs: 10
   batch_size: 1024
   optimizer: adam
   learning_rate: 1.0e-3
@@ -39,11 +39,8 @@ logging:
   num_recon_examples: 8
   encode_batch_size: 1024        # batch size for latent extraction
 
-umap:
-  n_neighbors: 300
-  min_dist: 0.1
-  metric: "euclidean"
+pca:
   n_components: 2
+  whiten: false
   random_state: 0
-  max_points: 20000              # fit UMAP on at most this many samples; transform all
-  verbose: true                  # let UMAP print its own progress
+  max_points: null             # null = fit on all points, int = fit on subset of this size
